@@ -40,3 +40,16 @@ $ npm run build:linux
 [v0.1.0 (Latest)](https://github.com/xushulang/camera/releases/tag/v0.1.0)
 
 [History Version](https://github.com/xushulang/camera/releases)
+
+**Your support makes me do better. Please donate to me through WeChat or Alipay.**
+
+<p style="display: flex; gap: 16px">
+  <img
+    src="https://user-images.githubusercontent.com/52433214/215743605-68f30fcc-fc84-4567-90ad-4d1768ba11ae.png"
+    style="width: 200px"
+  />
+  <img
+    src="https://user-images.githubusercontent.com/52433214/215743668-45d95d68-72b1-477b-bd27-eff9403fa88e.png"
+    style="width: 200px"
+  />
+</p>
