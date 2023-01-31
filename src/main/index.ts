@@ -1,12 +1,13 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, screen, ipcMain } from 'electron'
 import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 
 function createWindow(): void {
+  const size = screen.getPrimaryDisplay().workAreaSize
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 300,
-    height: 300,
+    width: Math.trunc(size.width * 0.2),
+    height: Math.trunc(size.width * 0.2),
     show: false,
     frame: false,
     transparent: true,
@@ -30,6 +31,20 @@ function createWindow(): void {
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }
+  })
+
+  // mainWindow.webContents.openDevTools()
+
+  ipcMain.on('changeWindowSize', (_event, args) => {
+    if (args) {
+      mainWindow.setSize(Math.trunc(size.width * 0.2), Math.trunc(size.width * 0.2))
+    } else {
+      mainWindow.setSize(480, 270)
+    }
+  })
+
+  ipcMain.on('quitApp', () => {
+    app.quit()
   })
 
   // HMR for renderer base on electron-vite cli.
