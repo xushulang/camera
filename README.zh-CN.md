@@ -1,28 +1,28 @@
 # Camera
 
-An Camera application with Electron, Vite, Vue and TypesSript.
+一个使用 Electron、Vite、Vue 和 TypesSript 开发的摄像头应用。
 
-English | [中文](./README.zh-CN.md)
+[English](./README.md) | 中文
 
-## Recommended IDE Setup
+## 推荐 IDE 配置
 
 - [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-## Project Setup
+## 项目设置
 
-### Install
+### 安装依赖
 
 ```bash
 $ npm install
 ```
 
-### Development
+### 开发环境运行
 
 ```bash
 $ npm run dev
 ```
 
-### Build
+### 生产环境编译
 
 ```bash
 # For windows
@@ -35,8 +35,8 @@ $ npm run build:mac
 $ npm run build:linux
 ```
 
-### Releases
+### 发布
 
-[v0.1.0 (Latest)](https://github.com/xushulang/camera/releases/tag/v0.1.0)
+[v0.1.0 （最新）](https://github.com/xushulang/camera/releases/tag/v0.1.0)
 
-[History Version](https://github.com/xushulang/camera/releases)
+[历史版本](https://github.com/xushulang/camera/releases)
