@@ -8,7 +8,6 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Camera: typeof import('./src/components/Camera.vue')['default']
-    NButton: typeof import('naive-ui')['NButton']
     NIcon: typeof import('naive-ui')['NIcon']
     NTooltip: typeof import('naive-ui')['NTooltip']
     Versions: typeof import('./src/components/Versions.vue')['default']
