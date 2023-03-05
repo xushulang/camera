@@ -1,28 +1,37 @@
-import { app, shell, BrowserWindow, screen, ipcMain } from 'electron'
-import * as path from 'path'
+import { app, shell, BrowserWindow } from 'electron'
+import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import icon from '../../resources/icon.png?asset'
+import './contextMenu'
+import './drag'
+import './menu'
+import { createTray } from './tray'
+import autoUpdater from './autoUpdater'
 
 function createWindow(): void {
-  const size = screen.getPrimaryDisplay().workAreaSize
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: Math.trunc(size.width * 0.2),
-    height: Math.trunc(size.width * 0.2),
+    width: 300,
+    height: 300,
+    minWidth: 300,
+    minHeight: 300,
+    alwaysOnTop: true,
     show: false,
+    autoHideMenuBar: true,
+    skipTaskbar: true,
     frame: false,
     transparent: true,
-    alwaysOnTop: true,
-    autoHideMenuBar: true,
-    ...(process.platform === 'linux'
-      ? {
-          icon: path.join(__dirname, '../../build/icon.png')
-        }
-      : {}),
+    ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js'),
+      preload: join(__dirname, '../preload/index.js'),
       sandbox: false
     }
   })
+
+  // dev环境开启调试控制台
+  if (is.dev) mainWindow.webContents.openDevTools()
+  // 窗口比例设置为1
+  mainWindow.setAspectRatio(1)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
@@ -33,27 +42,16 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
-  // mainWindow.webContents.openDevTools()
-
-  ipcMain.on('changeWindowSize', (_event, args) => {
-    if (args) {
-      mainWindow.setSize(Math.trunc(size.width * 0.2), Math.trunc(size.width * 0.2))
-    } else {
-      mainWindow.setSize(480, 270)
-    }
-  })
-
-  ipcMain.on('quitApp', () => {
-    app.quit()
-  })
-
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
-    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
+    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  // 自动更新
+  autoUpdater(mainWindow)
 }
 
 // This method will be called when Electron has finished
@@ -77,6 +75,11 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+
+  // 隐藏MacOS dock图标
+  if (process.platform == 'darwin') app.dock.hide()
+  // 托盘
+  createTray()
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common

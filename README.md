@@ -1,4 +1,4 @@
-# Camera
+# camera
 
 An Camera application with Electron, Vite, Vue and TypesSript.
 
@@ -37,9 +37,15 @@ $ npm run build:linux
 
 ### Releases
 
-[v0.1.0 (Latest)](https://github.com/xushulang/camera/releases/tag/v0.1.0)
+[v1.0.0 (Latest)](https://github.com/xushulang/camera/releases/tag/v1.0.0)
 
 [History Version](https://github.com/xushulang/camera/releases)
+
+## License
+
+The Camera is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Donate
 
 **Your support makes me do better. Please donate to me through WeChat or Alipay.**
 
