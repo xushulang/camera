@@ -1,4 +1,4 @@
-# camera
+# QCamera
 
 An Camera application with Electron, Vite, Vue and TypesSript.
 
@@ -37,7 +37,7 @@ $ npm run build:linux
 
 ### Releases
 
-[v1.0.0 (Latest)](https://github.com/xushulang/camera/releases/tag/v1.0.0)
+[v1.0.1 (Latest)](https://github.com/xushulang/camera/releases/tag/v1.0.1)
 
 [History Version](https://github.com/xushulang/camera/releases)
 

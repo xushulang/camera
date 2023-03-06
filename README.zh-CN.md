@@ -1,4 +1,4 @@
-# camera
+# QCamera
 
 一个使用 Electron、Vite、Vue 和 TypesSript 开发的摄像头应用。
 
@@ -37,7 +37,7 @@ $ npm run build:linux
 
 ### 发布
 
-[v1.0.0 （最新）](https://github.com/xushulang/camera/releases/tag/v1.0.0)
+[v1.0.1 （最新）](https://github.com/xushulang/camera/releases/tag/v1.0.1)
 
 [历史版本](https://github.com/xushulang/camera/releases)
 
