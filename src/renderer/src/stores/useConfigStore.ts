@@ -6,7 +6,7 @@ export const useConfigStore = defineStore(
   () => {
     const config = ref({
       borderColor: '#fdba74',
-      borderWidth: '3px',
+      borderWidth: '0px',
       deviceId: '',
       page: 'camera',
       rounded: false
