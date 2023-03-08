@@ -37,7 +37,7 @@ $ npm run build:linux
 
 ### Releases
 
-[v1.0.1 (Latest)](https://github.com/xushulang/camera/releases/tag/v1.0.1)
+[Latest](https://github.com/xushulang/camera/releases/latest)
 
 [History Version](https://github.com/xushulang/camera/releases)
 

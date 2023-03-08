@@ -6,14 +6,20 @@ const api = {
   drag: (opt: { x: number; y: number }): void => {
     ipcRenderer.send('drag', opt)
   },
-  quit: (): void => {
-    ipcRenderer.send('contextMenu')
-  },
   //下载进度条
   downloadProgress: (callback: (progress: any) => void): void => {
     ipcRenderer.on('downloadProgress', (_event, progress) => {
       callback(progress)
     })
+  },
+  setWindowSize: (opt: { aspectRatio: number; width: number; height: number }): void => {
+    ipcRenderer.send('setWindowSize', opt)
+  },
+  contextMenu: (): void => {
+    ipcRenderer.send('contextMenu')
+  },
+  quit: (): void => {
+    ipcRenderer.send('contextMenu')
   }
 }
 

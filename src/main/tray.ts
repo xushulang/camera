@@ -5,12 +5,12 @@ const createTray = (): void => {
   const tray = new Tray(path.resolve(__dirname, '../../resources/tray.png'))
 
   const contextMenu = Menu.buildFromTemplate([
-    { label: '退出程序', role: 'quit' },
+    { label: '问题反馈', click: () => shell.openExternal('https://github.com/xushulang/camera') },
     { type: 'separator' },
-    { label: '问题反馈', click: () => shell.openExternal('https://github.com/xushulang/camera') }
+    { label: '退出程序', role: 'quit' }
   ])
 
-  tray.setToolTip('摄像头')
+  tray.setToolTip('QCamera摄像头')
   tray.setContextMenu(contextMenu)
 }
 

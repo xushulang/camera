@@ -37,7 +37,7 @@ $ npm run build:linux
 
 ### 发布
 
-[v1.0.1 （最新）](https://github.com/xushulang/camera/releases/tag/v1.0.1)
+[最新版](https://github.com/xushulang/camera/releases/latest)
 
 [历史版本](https://github.com/xushulang/camera/releases)
 

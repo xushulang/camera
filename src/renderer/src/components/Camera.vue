@@ -26,6 +26,10 @@ onMounted(() => {
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
   >
-    <video class="object-cover h-full" autoplay :class="{ 'rounded-full': config.rounded }"></video>
+    <video
+      class="object-cover w-screen h-screen"
+      autoplay
+      :class="{ 'rounded-full': config.rounded }"
+    ></video>
   </div>
 </template>

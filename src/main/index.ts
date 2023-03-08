@@ -5,16 +5,15 @@ import icon from '../../resources/icon.png?asset'
 import './contextMenu'
 import './drag'
 import './menu'
+import './windowSize'
 import { createTray } from './tray'
 import autoUpdater from './autoUpdater'
 
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 300,
-    height: 300,
-    minWidth: 300,
-    minHeight: 300,
+    width: 500,
+    height: 281,
     alwaysOnTop: true,
     show: false,
     autoHideMenuBar: true,
@@ -30,9 +29,6 @@ function createWindow(): void {
 
   // dev环境开启调试控制台
   if (is.dev) mainWindow.webContents.openDevTools()
-  // 窗口比例设置为1
-  mainWindow.setAspectRatio(1)
-
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
