@@ -1,6 +1,6 @@
 {
   "name": "camera",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An camera application",
   "main": "./out/main/index.js",
   "author": "xushulang",
@@ -41,6 +41,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.2",
     "autoprefixer": "^10.4.13",
+    "del-cli": "^5.0.0",
     "electron": "^21.3.3",
     "electron-builder": "^23.6.0",
     "electron-vite": "^1.0.17",
