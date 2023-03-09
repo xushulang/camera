@@ -65,7 +65,7 @@ jobs:
       - name: Cleanup Artifacts for Linux
         if: matrix.os == 'ubuntu-latest'
         run: |
-          npx del "dist/*" "!dist/(*.AppImage|latest*.yml)"
+          npx del "dist/*" "!dist/(*.AppImage|latest*.yml|*.appimage.*)"
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3.0.0
@@ -77,6 +77,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: "dist/**"
+          files: 'dist/**'
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
