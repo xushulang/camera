@@ -1,6 +1,6 @@
 {
   "name": "camera",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An camera application",
   "main": "./out/main/index.js",
   "author": "xushulang",
@@ -16,7 +16,8 @@
     "build": "npm run typecheck && electron-vite build",
     "postinstall": "electron-builder install-app-deps",
     "build:win": "npm run build && electron-builder --win --config",
-    "build:mac": "npm run build && electron-builder --mac --config",
+    "build:mac-x86": "npm run build && electron-builder --mac --config --publish never",
+    "build:mac-arm64": "npm run build && electron-builder --arm64 --mac --config --publish never",
     "build:linux": "npm run build && electron-builder --linux --config"
   },
   "dependencies": {
