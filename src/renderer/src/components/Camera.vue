@@ -24,7 +24,7 @@ onMounted(() => {
   <div
     class="w-screen h-screen overflow-hidden border-red-50"
     :class="{ 'rounded-full': config.rounded }"
-    :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
+    :style="`border:solid ${config.borderWidth}px ${config.borderColor}`"
   >
     <video
       class="object-cover w-screen h-screen"

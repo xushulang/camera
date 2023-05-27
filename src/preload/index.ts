@@ -3,9 +3,6 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
-  drag: (opt: { x: number; y: number }): void => {
-    ipcRenderer.send('drag', opt)
-  },
   //下载进度条
   downloadProgress: (callback: (progress: any) => void): void => {
     ipcRenderer.on('downloadProgress', (_event, progress) => {

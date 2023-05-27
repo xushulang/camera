@@ -1,4 +1,5 @@
 import { BrowserWindow, ipcMain } from 'electron'
+
 //获取窗口
 const getWin = (event: Electron.IpcMainEvent): Electron.BrowserWindow => {
   return BrowserWindow.fromWebContents(event.sender)!
@@ -10,9 +11,9 @@ ipcMain.on(
     win.setAspectRatio(opt.aspectRatio)
 
     if (opt.aspectRatio == 1) {
-      win.setBounds({ width: 300, height: 300 })
+      win.setBounds({ width: opt.width ?? 300, height: opt.width ?? 300 })
     } else {
-      win.setBounds({ width: 500, height: 281 })
+      win.setBounds({ width: opt.width ?? 500, height: opt.height ?? 281 })
     }
   }
 )

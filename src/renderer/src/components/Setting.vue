@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useConfigStore } from '../stores/useConfigStore'
-import { NSelect, NInput } from 'naive-ui'
+import { NSelect, NInput, NInputNumber } from 'naive-ui'
 import { SelectOption } from 'naive-ui'
 
 const { config } = useConfigStore()
@@ -37,12 +37,16 @@ onMounted(async () => {
         :options="cameras"
       />
 
-      <n-input v-model:value="config.borderWidth" placeholder="边框宽度" clearable />
+      <n-input-number v-model:value="config.borderWidth" placeholder="边框宽度" clearable>
+        <template #suffix>px</template>
+      </n-input-number>
 
       <n-input v-model:value="config.borderColor" placeholder="边框颜色" clearable />
     </div>
 
-    <div class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs">
+    <div
+      class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs support"
+    >
       <a href="https://github.com/xushulang/camera" target="_blank" class="text-orange-500 mb-1">
         支持
       </a>
