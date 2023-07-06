@@ -16,7 +16,7 @@ const api = {
     ipcRenderer.send('contextMenu')
   },
   quit: (): void => {
-    ipcRenderer.send('contextMenu')
+    ipcRenderer.send('quit')
   }
 }
 

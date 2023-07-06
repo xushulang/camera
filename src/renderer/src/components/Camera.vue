@@ -23,7 +23,7 @@ onMounted(() => {
 <template>
   <div
     class="w-screen h-screen overflow-hidden border-red-50"
-    :class="{ 'rounded-full': config.rounded }"
+    :class="{ 'rounded-full': config.rounded, 'rounded-md': !config.rounded }"
     :style="`border:solid ${config.borderWidth}px ${config.borderColor}`"
   >
     <video

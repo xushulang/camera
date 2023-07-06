@@ -4,7 +4,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import './contextMenu'
 import './menu'
-import './windowSize'
+import './windowManage'
 import { createTray } from './tray'
 import autoUpdater from './autoUpdater'
 
