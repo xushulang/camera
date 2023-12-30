@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useConfigStore } from './stores/useConfigStore'
-import Camera from './components/Camera.vue'
-import Setting from './components/Setting.vue'
-import Updater from './components/Updater.vue'
-import Toolbar from './components/Toolbar.vue'
+import Camera from './views/Camera.vue'
+import Setting from './views/Setting.vue'
+import Updater from './views/Updater.vue'
+import Toolbar from './views/Toolbar.vue'
 import { NConfigProvider, zhCN } from 'naive-ui'
 
 const { config } = useConfigStore()
