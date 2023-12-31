@@ -11,8 +11,8 @@ import autoUpdater from './autoUpdater'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 500,
-    height: 281,
+    width: 640,
+    height: 360,
     alwaysOnTop: true,
     show: false,
     autoHideMenuBar: true,
