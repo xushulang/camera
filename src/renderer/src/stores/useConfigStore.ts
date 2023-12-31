@@ -8,10 +8,14 @@ export const useConfigStore = defineStore(
       borderColor: '#fdba74',
       borderWidth: 0,
       deviceId: '',
-      page: 'camera',
+      page: 'setting',
+      fullScreen: false,
       rounded: false,
-      //视频比例
-      aspectRatio: 16 / 9
+      aspectRatio: 16 / 9,
+      x: 0,
+      y: 0,
+      width: 640,
+      height: 360
     })
 
     return { config }

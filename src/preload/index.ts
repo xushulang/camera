@@ -1,16 +1,36 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
+import { ProgressInfo } from 'electron-updater'
 
 // Custom APIs for renderer
 const api = {
   //下载进度条
-  downloadProgress: (callback: (progress: any) => void): void => {
+  downloadProgress: (callback: (progress: ProgressInfo) => void): void => {
     ipcRenderer.on('downloadProgress', (_event, progress) => {
       callback(progress)
     })
   },
-  setWindowSize: (opt: { aspectRatio: number; width: number; height: number }): void => {
+  setConfigBounds: (
+    callback: (opt: { x: number; y: number; width: number; height: number }) => void
+  ): void => {
+    ipcRenderer.on('setConfigBounds', (_event, opt) => {
+      callback(opt)
+    })
+  },
+  getWindowSize: (): Promise<{ width: number; height: number }> => {
+    return new Promise((resolve) => {
+      ipcRenderer.once('getWindowSize', (_event, opt) => {
+        resolve(opt)
+      })
+      ipcRenderer.send('getWindowSize')
+    })
+  },
+  setWindowSize: (opt: { x?: number; y?: number; width: number; height: number }): void => {
     ipcRenderer.send('setWindowSize', opt)
+  },
+
+  setFullScreen: (): void => {
+    ipcRenderer.send('setFullScreen')
   },
   contextMenu: (): void => {
     ipcRenderer.send('contextMenu')

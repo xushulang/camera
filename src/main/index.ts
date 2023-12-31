@@ -30,8 +30,14 @@ function createWindow(): void {
 
   // dev环境开启调试控制台
   if (is.dev) mainWindow.webContents.openDevTools()
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+  })
+
+  mainWindow.on('resize', () => {
+    const bounds = mainWindow.getBounds()
+    mainWindow.webContents.send('setConfigBounds', bounds)
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {

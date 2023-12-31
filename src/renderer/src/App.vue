@@ -20,20 +20,24 @@ const contextMenu = (): void => window.api.contextMenu()
 
       <Camera v-if="config.page === 'camera'" />
 
-      <Setting v-else />
+      <Setting v-if="config.page === 'setting'" />
     </div>
   </n-config-provider>
 </template>
 
 <style>
+.drag,
 html {
   -webkit-app-region: drag;
 }
 
+.no-drag,
 .n-input,
 .n-icon,
 .n-select,
 .n-select-menu,
+.n-color-picker,
+.n-color-picker-panel,
 .support {
   -webkit-app-region: no-drag;
 }

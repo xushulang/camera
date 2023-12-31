@@ -5,26 +5,33 @@ const getWin = (event: Electron.IpcMainEvent): Electron.BrowserWindow => {
   return BrowserWindow.fromWebContents(event.sender)!
 }
 
+ipcMain.on('getWindowSize', (event: Electron.IpcMainEvent) => {
+  const win = getWin(event)
+
+  event.reply('getWindowSize', { ...win.getContentBounds() })
+})
+
 ipcMain.on(
   'setWindowSize',
   (
     event: Electron.IpcMainEvent,
-    opt: { aspectRatio?: number; width?: number; height?: number }
+    opt: { x?: number; y?: number; width: number; height: number }
   ) => {
     const win = getWin(event)
-    if (opt.aspectRatio) win.setAspectRatio(opt.aspectRatio)
-
-    if (opt.aspectRatio == 1) {
-      win.setBounds({ width: opt.width ?? 300, height: opt.width ?? 300 })
+    win.setBounds(opt)
+    if (!opt.x && !opt.y) {
+      win.center()
     }
-    if (opt.aspectRatio == 16 / 9) {
-      win.setBounds({ width: opt.width ?? 500, height: opt.height ?? 281 })
-    }
+    win.setAspectRatio(opt.width === opt.height ? 1 : 16 / 9)
   }
 )
 
+ipcMain.on('setFullScreen', (event: Electron.IpcMainEvent) => {
+  const win = getWin(event)
+  win.setFullScreen(true)
+})
+
 ipcMain.on('quit', (event: Electron.IpcMainEvent) => {
   const win = getWin(event)
-  if (BrowserWindow.getAllWindows().length == 0) app.quit()
-  else win?.close()
+  BrowserWindow.getAllWindows().length == 0 ? app.quit() : win?.close()
 })
