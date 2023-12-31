@@ -1,6 +1,6 @@
 {
   "name": "camera",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "An camera application",
   "main": "./out/main/index.js",
   "author": "xushulang",
