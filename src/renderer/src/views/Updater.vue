@@ -22,7 +22,7 @@ window.api.downloadProgress((_progress: ProgressInfo) => {
         type="line"
         :indicator-placement="'inside'"
         :height="24"
-        :percentage="progress?.percent"
+        :percentage="Math.floor(progress.percent)"
       />
     </div>
 
