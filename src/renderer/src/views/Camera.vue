@@ -14,12 +14,16 @@ const constraints = {
 }
 
 onBeforeMount(() => {
-  window.api.setConfigBounds((bounds: { x: number; y: number; width: number; height: number }) => {
-    config.x = bounds.x
-    config.y = bounds.y
-    config.width = bounds.width
-    config.height = bounds.height
-  })
+  if (!(config.fullScreen || config.page === 'setting')) {
+    window.api.setConfigBounds(
+      (bounds: { x: number; y: number; width: number; height: number }) => {
+        config.x = bounds.x
+        config.y = bounds.y
+        if (config.rounded) config.width = bounds.height
+        config.height = bounds.height
+      }
+    )
+  }
 })
 
 onMounted(() => {

@@ -35,7 +35,12 @@ function createWindow(): void {
     mainWindow.show()
   })
 
-  mainWindow.on('resize', () => {
+  mainWindow.on('resized', () => {
+    const bounds = mainWindow.getBounds()
+    mainWindow.webContents.send('setConfigBounds', bounds)
+  })
+
+  mainWindow.on('moved', () => {
     const bounds = mainWindow.getBounds()
     mainWindow.webContents.send('setConfigBounds', bounds)
   })
