@@ -8,5 +8,5 @@ declare module '*.vue' {
 }
 
 interface Window {
-  api: unknown
+  api: any
 }
