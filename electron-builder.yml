@@ -7,10 +7,10 @@ files:
   - '!src/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
   - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 asarUnpack:
-  - resources/*
-afterSign: build/notarize.js
+  - resources/**
 win:
   executableName: QCamera
 nsis:
@@ -28,6 +28,7 @@ mac:
     - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
     - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  notarize: false
 dmg:
   artifactName: ${productName}-${version}.${ext}
 linux:
@@ -40,9 +41,6 @@ linux:
 appImage:
   artifactName: ${productName}-${version}.${ext}
 npmRebuild: false
-# publish:
-#   provider: generic
-#   url: https://github.com/xushulang/camera
 # publish:
 #   provider: github
 #   releaseType: release
