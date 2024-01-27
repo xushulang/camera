@@ -8,8 +8,6 @@ const constraints = {
   audio: false,
   video: {
     deviceId: config.deviceId
-    // width: { ideal: 1920 },
-    // height: { ideal: 1080 }
   }
 } as MediaStreamConstraints
 
