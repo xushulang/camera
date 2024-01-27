@@ -7,11 +7,11 @@ const { config } = useConfigStore()
 const constraints = {
   audio: false,
   video: {
-    deviceId: config.deviceId,
-    width: { min: 640, ideal: 1920, max: 3840 },
-    height: { min: 360, ideal: 1080, max: 2160 }
+    deviceId: config.deviceId
+    // width: { ideal: 1920 },
+    // height: { ideal: 1080 }
   }
-}
+} as MediaStreamConstraints
 
 onBeforeMount(() => {
   if (!(config.fullScreen || config.page === 'setting')) {
@@ -27,7 +27,7 @@ onBeforeMount(() => {
 })
 
 onMounted(() => {
-  const video = document.querySelector('video')!
+  const video = document.querySelector('video')! as HTMLVideoElement
 
   navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
     video.srcObject = stream
