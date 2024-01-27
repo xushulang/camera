@@ -54,7 +54,7 @@ onMounted(async () => {
         class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs support"
       >
         <a href="https://github.com/xushulang/camera" target="_blank" class="text-orange-500 mb-1">
-          支持
+          支持作者
         </a>
       </div>
     </div>
