@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useConfigStore } from '../stores/useConfigStore'
-import { NSelect, NInputNumber, NColorPicker } from 'naive-ui'
+import { NSelect, NInputNumber, NColorPicker, NIcon } from 'naive-ui'
 import { SelectOption } from 'naive-ui'
+import Heart from '@vicons/fa/Heart'
 
 const { config } = useConfigStore()
 
@@ -54,7 +55,12 @@ onMounted(async () => {
         class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs support"
       >
         <a href="https://github.com/xushulang/camera" target="_blank" class="text-orange-500 mb-1">
-          支持作者
+          <div class="flex items-center gap-1">
+            <n-icon size="16">
+              <Heart />
+            </n-icon>
+            <div>支持作者</div>
+          </div>
         </a>
       </div>
     </div>
