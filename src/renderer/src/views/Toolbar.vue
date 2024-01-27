@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { NIcon } from 'naive-ui'
-import { Settings, Close } from '@vicons/carbon'
-import { CameraOutline } from '@vicons/ionicons5'
-import { Rectangle, Circle } from '@vicons/tabler'
-import { FullScreenMinimize24Regular, FullScreenMaximize24Regular } from '@vicons/fluent'
-import { useConfigStore } from '../stores/useConfigStore'
 import { onMounted } from 'vue'
+import { useConfigStore } from '../stores/useConfigStore'
+import Settings from '@vicons/carbon/Settings'
+import Close from '@vicons/carbon/Close'
+import CameraOutline from '@vicons/ionicons5/CameraOutline'
+import Rectangle from '@vicons/tabler/Rectangle'
+import Circle from '@vicons/tabler/Circle'
+import FullScreenMinimize24Regular from '@vicons/fluent/FullScreenMinimize24Regular'
+import FullScreenMaximize24Regular from '@vicons/fluent/FullScreenMaximize24Regular'
 
 const { config } = useConfigStore()
 
