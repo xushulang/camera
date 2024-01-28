@@ -41,7 +41,6 @@ linux:
 appImage:
   artifactName: ${productName}-${version}.${ext}
 npmRebuild: false
-# publish:
-#   provider: github
-#   releaseType: release
-#   url: https://github.com/xushulang/camera
+publish:
+  provider: generic
+  url: https://example.com/auto-updates
