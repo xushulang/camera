@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -44,6 +44,8 @@ function createWindow(): void {
     const bounds = mainWindow.getBounds()
     mainWindow.webContents.send('setConfigBounds', bounds)
   })
+
+  ipcMain.handle('getAppVersion', (): string => app.getVersion())
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)

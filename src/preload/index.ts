@@ -4,12 +4,15 @@ import { ProgressInfo } from 'electron-updater'
 
 // Custom APIs for renderer
 const api = {
+  getAppVersion: (): Promise<string> => ipcRenderer.invoke('getAppVersion'),
+
   //下载进度条
   downloadProgress: (callback: (progress: ProgressInfo) => void): void => {
     ipcRenderer.on('downloadProgress', (_event, progress) => {
       callback(progress)
     })
   },
+
   setConfigBounds: (
     callback: (opt: { x: number; y: number; width: number; height: number }) => void
   ): void => {
@@ -17,6 +20,7 @@ const api = {
       callback(opt)
     })
   },
+
   getWindowSize: (): Promise<{ width: number; height: number }> => {
     return new Promise((resolve) => {
       ipcRenderer.once('getWindowSize', (_event, opt) => {
@@ -25,6 +29,7 @@ const api = {
       ipcRenderer.send('getWindowSize')
     })
   },
+
   setWindowSize: (opt: { x?: number; y?: number; width: number; height: number }): void => {
     ipcRenderer.send('setWindowSize', opt)
   },
@@ -32,9 +37,11 @@ const api = {
   setFullScreen: (): void => {
     ipcRenderer.send('setFullScreen')
   },
+
   contextMenu: (): void => {
     ipcRenderer.send('contextMenu')
   },
+
   quit: (): void => {
     ipcRenderer.send('quit')
   }

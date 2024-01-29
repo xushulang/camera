@@ -10,8 +10,11 @@ const { config } = useConfigStore()
 const devices = ref<MediaDeviceInfo[]>()
 const cameras = ref<SelectOption[]>()
 
+const appVersion = ref('')
+
 onMounted(async () => {
   devices.value = await navigator.mediaDevices.enumerateDevices()
+
   cameras.value = devices.value
     .filter((item) => {
       return item.kind.includes('video')
@@ -22,6 +25,8 @@ onMounted(async () => {
         value: item.deviceId
       } as SelectOption
     })
+
+  appVersion.value = await window.api.getAppVersion()
 })
 </script>
 
@@ -51,12 +56,12 @@ onMounted(async () => {
         <n-color-picker v-model:value="config.borderColor" :modes="['hex']" />
       </div>
 
-      <div
-        class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs support"
-      >
-        <a href="https://github.com/xushulang/camera" target="_blank" class="text-orange-500 mb-1">
+      <div class="flex justify-center items-center gap-2 font-light mt-3 text-xs">
+        <div class="text-gray-100">v{{ appVersion }}</div>
+
+        <a href="https://github.com/xushulang/camera" target="_blank" class="text-orange-500">
           <div class="flex items-center gap-1">
-            <n-icon size="16">
+            <n-icon size="12">
               <Heart />
             </n-icon>
             <div>支持作者</div>
