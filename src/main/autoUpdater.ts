@@ -7,6 +7,12 @@ autoUpdater.autoDownload = false
 //退出时自动安装更新
 autoUpdater.autoInstallOnAppQuit = false
 
+autoUpdater.setFeedURL({
+  provider: 'github',
+  repo: 'camera',
+  owner: 'xushulang'
+})
+
 export default (win: BrowserWindow): void => {
   //检查是否有更新
   if (!is.dev) autoUpdater.checkForUpdates()
